@@ -15,27 +15,30 @@ namespace NetworkTroubleShooter {
 
 		public Form1() {
 			InitializeComponent();
+			textBoxEnterModem.Text = modemIp;
+			textBoxEnterRouter.Text = routerIp;
+			textBoxEnterGoogle.Text = googleAddress;
+			textBoxEnterDns.Text = googleAddress;
 		}
 
 		private void btnPingModem_Click(object sender, EventArgs e) {
-			textBoxPingModem.Text += "Hey bro\n";
-			CLIRunner.RunCommand(string.Format("ping {0}", modemIp));
+			string command = string.Format("ping {0}", textBoxEnterModem.Text);
+			CommandRunner.RunCommand(textBoxPingModem, command);
 		}
 
 		private void btnPingRouter_Click(object sender, EventArgs e) {
-
+			string command = string.Format("ping {0}", textBoxEnterRouter.Text);
+			CommandRunner.RunCommand(textBoxPingRouter, command);
 		}
 
 		private void btnPingGoogle_Click(object sender, EventArgs e) {
-
+			string command = string.Format("ping {0}", textBoxEnterGoogle.Text);
+			CommandRunner.RunCommand(textBoxPingGoogle, command);
 		}
 
 		private void btnCheckDNS_Click(object sender, EventArgs e) {
-
-		}
-
-		private void StartCommand(string command) {
-
+			string command = string.Format("nslookup {0}", textBoxEnterDns.Text);
+			CommandRunner.RunCommand(textBoxCheckDNS, command);
 		}
 	}
 }

@@ -33,6 +33,10 @@
 			this.textBoxPingRouter = new System.Windows.Forms.TextBox();
 			this.textBoxPingGoogle = new System.Windows.Forms.TextBox();
 			this.textBoxCheckDNS = new System.Windows.Forms.TextBox();
+			this.textBoxEnterModem = new System.Windows.Forms.TextBox();
+			this.textBoxEnterRouter = new System.Windows.Forms.TextBox();
+			this.textBoxEnterGoogle = new System.Windows.Forms.TextBox();
+			this.textBoxEnterDns = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -40,7 +44,7 @@
 			// 
 			this.tableLayoutPanel1.ColumnCount = 3;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Controls.Add(this.btnPingModem, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btnPingRouter, 0, 1);
@@ -50,6 +54,10 @@
 			this.tableLayoutPanel1.Controls.Add(this.textBoxPingRouter, 2, 1);
 			this.tableLayoutPanel1.Controls.Add(this.textBoxPingGoogle, 2, 2);
 			this.tableLayoutPanel1.Controls.Add(this.textBoxCheckDNS, 2, 3);
+			this.tableLayoutPanel1.Controls.Add(this.textBoxEnterModem, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.textBoxEnterRouter, 1, 1);
+			this.tableLayoutPanel1.Controls.Add(this.textBoxEnterGoogle, 1, 2);
+			this.tableLayoutPanel1.Controls.Add(this.textBoxEnterDns, 1, 3);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 4;
@@ -118,35 +126,63 @@
 			// 
 			// textBoxPingModem
 			// 
-			this.textBoxPingModem.Location = new System.Drawing.Point(203, 3);
+			this.textBoxPingModem.Location = new System.Drawing.Point(261, 3);
 			this.textBoxPingModem.Multiline = true;
 			this.textBoxPingModem.Name = "textBoxPingModem";
-			this.textBoxPingModem.Size = new System.Drawing.Size(299, 66);
+			this.textBoxPingModem.Size = new System.Drawing.Size(241, 66);
 			this.textBoxPingModem.TabIndex = 2;
 			// 
 			// textBoxPingRouter
 			// 
-			this.textBoxPingRouter.Location = new System.Drawing.Point(203, 75);
+			this.textBoxPingRouter.Location = new System.Drawing.Point(261, 75);
 			this.textBoxPingRouter.Multiline = true;
 			this.textBoxPingRouter.Name = "textBoxPingRouter";
-			this.textBoxPingRouter.Size = new System.Drawing.Size(299, 66);
+			this.textBoxPingRouter.Size = new System.Drawing.Size(241, 66);
 			this.textBoxPingRouter.TabIndex = 2;
 			// 
 			// textBoxPingGoogle
 			// 
-			this.textBoxPingGoogle.Location = new System.Drawing.Point(203, 147);
+			this.textBoxPingGoogle.Location = new System.Drawing.Point(261, 147);
 			this.textBoxPingGoogle.Multiline = true;
 			this.textBoxPingGoogle.Name = "textBoxPingGoogle";
-			this.textBoxPingGoogle.Size = new System.Drawing.Size(299, 66);
+			this.textBoxPingGoogle.Size = new System.Drawing.Size(241, 66);
 			this.textBoxPingGoogle.TabIndex = 2;
 			// 
 			// textBoxCheckDNS
 			// 
-			this.textBoxCheckDNS.Location = new System.Drawing.Point(203, 219);
+			this.textBoxCheckDNS.Location = new System.Drawing.Point(261, 219);
 			this.textBoxCheckDNS.Multiline = true;
 			this.textBoxCheckDNS.Name = "textBoxCheckDNS";
-			this.textBoxCheckDNS.Size = new System.Drawing.Size(299, 66);
+			this.textBoxCheckDNS.Size = new System.Drawing.Size(241, 66);
 			this.textBoxCheckDNS.TabIndex = 2;
+			// 
+			// textBoxEnterModem
+			// 
+			this.textBoxEnterModem.Location = new System.Drawing.Point(103, 3);
+			this.textBoxEnterModem.Name = "textBoxEnterModem";
+			this.textBoxEnterModem.Size = new System.Drawing.Size(152, 20);
+			this.textBoxEnterModem.TabIndex = 3;
+			// 
+			// textBoxEnterRouter
+			// 
+			this.textBoxEnterRouter.Location = new System.Drawing.Point(103, 75);
+			this.textBoxEnterRouter.Name = "textBoxEnterRouter";
+			this.textBoxEnterRouter.Size = new System.Drawing.Size(152, 20);
+			this.textBoxEnterRouter.TabIndex = 4;
+			// 
+			// textBoxEnterGoogle
+			// 
+			this.textBoxEnterGoogle.Location = new System.Drawing.Point(103, 147);
+			this.textBoxEnterGoogle.Name = "textBoxEnterGoogle";
+			this.textBoxEnterGoogle.Size = new System.Drawing.Size(152, 20);
+			this.textBoxEnterGoogle.TabIndex = 5;
+			// 
+			// textBoxEnterDns
+			// 
+			this.textBoxEnterDns.Location = new System.Drawing.Point(103, 219);
+			this.textBoxEnterDns.Name = "textBoxEnterDns";
+			this.textBoxEnterDns.Size = new System.Drawing.Size(152, 20);
+			this.textBoxEnterDns.TabIndex = 6;
 			// 
 			// Form1
 			// 
@@ -176,6 +212,10 @@
 		private System.Windows.Forms.TextBox textBoxPingRouter;
 		private System.Windows.Forms.TextBox textBoxPingGoogle;
 		private System.Windows.Forms.TextBox textBoxCheckDNS;
+		private System.Windows.Forms.TextBox textBoxEnterModem;
+		private System.Windows.Forms.TextBox textBoxEnterRouter;
+		private System.Windows.Forms.TextBox textBoxEnterGoogle;
+		private System.Windows.Forms.TextBox textBoxEnterDns;
 	}
 }
 
