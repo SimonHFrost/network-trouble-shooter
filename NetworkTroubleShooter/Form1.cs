@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace NetworkTroubleShooter {
 	public partial class Form1 : Form {
@@ -23,22 +24,28 @@ namespace NetworkTroubleShooter {
 
 		private void btnPingModem_Click(object sender, EventArgs e) {
 			string command = string.Format("ping {0}", textBoxEnterModem.Text);
-			CommandRunner.RunCommand(textBoxPingModem, command);
+			CommandRunner commandRunner = new CommandRunner(textBoxPingModem, command);
+
+			Thread thread = new Thread(commandRunner.RunCommand);
+			thread.Start();
 		}
 
 		private void btnPingRouter_Click(object sender, EventArgs e) {
-			string command = string.Format("ping {0}", textBoxEnterRouter.Text);
-			CommandRunner.RunCommand(textBoxPingRouter, command);
+			//CommandRunner commandRunner = new CommandRunner();
+			//string command = string.Format("ping {0}", textBoxEnterRouter.Text);
+			//commandRunner.RunCommand(textBoxPingRouter, command);
 		}
 
 		private void btnPingGoogle_Click(object sender, EventArgs e) {
-			string command = string.Format("ping {0}", textBoxEnterGoogle.Text);
-			CommandRunner.RunCommand(textBoxPingGoogle, command);
+			//CommandRunner commandRunner = new CommandRunner();
+			//string command = string.Format("ping {0}", textBoxEnterGoogle.Text);
+			//commandRunner.RunCommand(textBoxPingGoogle, command);
 		}
 
 		private void btnCheckDNS_Click(object sender, EventArgs e) {
-			string command = string.Format("nslookup {0}", textBoxEnterDns.Text);
-			CommandRunner.RunCommand(textBoxCheckDNS, command);
-		}
+			//CommandRunner commandRunner = new CommandRunner();
+			//string command = string.Format("nslookup {0}", textBoxEnterDns.Text);
+			//commandRunner.RunCommand(textBoxCheckDNS, command);
+		} 
 	}
 }
