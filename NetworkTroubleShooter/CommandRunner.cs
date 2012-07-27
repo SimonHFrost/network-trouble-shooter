@@ -8,15 +8,13 @@ using System.Diagnostics;
 
 namespace NetworkTroubleShooter {
 	public class CommandRunner {
-		private TextBox _textBox;
 		private string _command;
 
-		public CommandRunner(TextBox textBox, string command) {
-			_textBox = textBox;
+		public CommandRunner(string command) {
 			_command = command;
 		}
 
-		public void RunCommand() {
+		public string RunCommand() {
 			ProcessStartInfo startInfo = new ProcessStartInfo("cmd", "/c " + _command);
 			startInfo.RedirectStandardOutput = true;
 			startInfo.UseShellExecute = false;
@@ -28,7 +26,7 @@ namespace NetworkTroubleShooter {
 
 			string output = process.StandardOutput.ReadToEnd();
 			process.WaitForExit();
-			_textBox.Text = output; 
+			return output; 
 		}
 
 	}
