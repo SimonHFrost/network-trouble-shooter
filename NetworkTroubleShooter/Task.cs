@@ -11,11 +11,13 @@ namespace NetworkTroubleShooter {
 	struct Task {
 		public TextBox TextBox;
 		public string Command;
+		public Label Label;
 		public TaskType TaskType;
 
-		public Task(TextBox textBox, string command, TaskType taskType) {
+		public Task(TextBox textBox, string command, Label label, TaskType taskType) {
 			TextBox = textBox;
 			Command = command;
+			Label = label;
 			TaskType = taskType;
 		}
 	}
