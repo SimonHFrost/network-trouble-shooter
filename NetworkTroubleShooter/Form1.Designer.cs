@@ -90,7 +90,7 @@
 			this.btnPingModem.Name = "btnPingModem";
 			this.btnPingModem.Size = new System.Drawing.Size(94, 66);
 			this.btnPingModem.TabIndex = 0;
-			this.btnPingModem.Text = "Ping Website";
+			this.btnPingModem.Text = "Ping Modem";
 			this.btnPingModem.UseVisualStyleBackColor = false;
 			this.btnPingModem.Click += new System.EventHandler(this.btnPingModem_Click);
 			// 
@@ -118,7 +118,7 @@
 			this.btnPingGoogle.Name = "btnPingGoogle";
 			this.btnPingGoogle.Size = new System.Drawing.Size(94, 66);
 			this.btnPingGoogle.TabIndex = 1;
-			this.btnPingGoogle.Text = "Ping Google";
+			this.btnPingGoogle.Text = "Ping Website";
 			this.btnPingGoogle.UseVisualStyleBackColor = false;
 			this.btnPingGoogle.Click += new System.EventHandler(this.btnPingGoogle_Click);
 			// 
