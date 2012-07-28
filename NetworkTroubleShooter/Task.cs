@@ -13,12 +13,14 @@ namespace NetworkTroubleShooter {
 		public string Command;
 		public Label Label;
 		public TaskType TaskType;
+		public bool Running;
 
-		public Task(TextBox textBox, string command, Label label, TaskType taskType) {
+		public Task(TextBox textBox, string command, Label label, TaskType taskType, ref bool running) {
 			TextBox = textBox;
 			Command = command;
 			Label = label;
 			TaskType = taskType;
+			Running = running;
 		}
 	}
 }
