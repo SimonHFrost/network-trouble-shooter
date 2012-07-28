@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TaskType.cs" />
+    <Compile Include="StringChecker.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="CommandRunner.cs" />
     <Compile Include="ControlExtensions.cs" />
