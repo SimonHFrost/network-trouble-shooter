@@ -16,10 +16,10 @@ namespace NetworkTroubleShooter {
 
 		private StringChecker _stringChecker;
 
-		private bool checkModem = false;
-		private bool checkRouter = false;
-		private bool checkGoogle = false;
-		private bool checkDNS = false;
+		private bool _checkModem = false;
+		private bool _checkRouter = false;
+		private bool _checkGoogle = false;
+		private bool _checkDNS = false;
 
 		public Form1() {
 			InitializeComponent();
@@ -33,42 +33,42 @@ namespace NetworkTroubleShooter {
 		}
 
 		private void btnPingModem_Click(object sender, EventArgs e) {
-			checkModem = !checkModem;
-			AdjustGui(btnPingModem, textBoxEnterModem, checkModem);
-			if (checkModem) {
+			_checkModem = !_checkModem;
+			AdjustGui(btnPingModem, textBoxEnterModem, _checkModem);
+			if (_checkModem) {
 				string command = string.Format("ping {0} -n 1", textBoxEnterModem.Text);
 				Thread thread = new Thread(new ParameterizedThreadStart(DoWorkAsync));
-				thread.Start(new Task(textBoxPingModem, command, labelModem, TaskType.Ping, ref checkModem));
+				thread.Start(new Task(textBoxPingModem, command, labelModem, TaskType.Ping, ref _checkModem));
 			}
 		}
 
 		private void btnPingRouter_Click(object sender, EventArgs e) {
-			checkRouter = !checkRouter;
-			AdjustGui(btnPingRouter, textBoxEnterRouter, checkRouter);
-			if (checkRouter) {
+			_checkRouter = !_checkRouter;
+			AdjustGui(btnPingRouter, textBoxEnterRouter, _checkRouter);
+			if (_checkRouter) {
 				string command = string.Format("ping {0} -n 1", textBoxEnterRouter.Text);
 				Thread thread = new Thread(new ParameterizedThreadStart(DoWorkAsync));
-				thread.Start(new Task(textBoxPingRouter, command, labelRouter, TaskType.Ping, ref checkRouter));
+				thread.Start(new Task(textBoxPingRouter, command, labelRouter, TaskType.Ping, ref _checkRouter));
 			}
 		}
 
 		private void btnPingGoogle_Click(object sender, EventArgs e) {
-			checkGoogle = !checkGoogle;
-			AdjustGui(btnPingGoogle, textBoxEnterGoogle, checkGoogle);
-			if (checkGoogle) {
+			_checkGoogle = !_checkGoogle;
+			AdjustGui(btnPingGoogle, textBoxEnterGoogle, _checkGoogle);
+			if (_checkGoogle) {
 				string command = string.Format("ping {0} -n 1", textBoxEnterGoogle.Text);
 				Thread thread = new Thread(new ParameterizedThreadStart(DoWorkAsync));
-				thread.Start(new Task(textBoxPingGoogle, command, labelGoogle, TaskType.Ping, ref checkGoogle));
+				thread.Start(new Task(textBoxPingGoogle, command, labelGoogle, TaskType.Ping, ref _checkGoogle));
 			}
 		}
 
 		private void btnCheckDNS_Click(object sender, EventArgs e) {
-			checkDNS = !checkDNS;
-			AdjustGui(btnCheckDNS, textBoxEnterDns, checkDNS);
-			if (checkDNS) {
+			_checkDNS = !_checkDNS;
+			AdjustGui(btnCheckDNS, textBoxEnterDns, _checkDNS);
+			if (_checkDNS) {
 				string command = string.Format("nslookup {0}", textBoxEnterDns.Text);
 				Thread thread = new Thread(new ParameterizedThreadStart(DoWorkAsync));
-				thread.Start(new Task(textBoxCheckDNS, command, labelDns, TaskType.Dns, ref checkDNS));
+				thread.Start(new Task(textBoxCheckDNS, command, labelDns, TaskType.Dns, ref _checkDNS));
 			}
 		}
 
@@ -87,7 +87,7 @@ namespace NetworkTroubleShooter {
 			bool running = task.Running;
 
 			CommandRunner commandRunner = new CommandRunner(command);
-			while (checkModem) {
+			while (running) {
 				string output = commandRunner.RunCommand();
 				textBox.Invoke(() => { textBox.Text = output; });
 

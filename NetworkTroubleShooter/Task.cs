@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace NetworkTroubleShooter {
 	/// <summary>
-	/// Needed because extra threads can only take one param
+	/// Needed because threads can only take one param, lame huh
 	/// </summary>
 	struct Task {
 		public TextBox TextBox;

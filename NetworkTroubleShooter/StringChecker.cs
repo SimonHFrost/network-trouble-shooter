@@ -15,15 +15,25 @@ namespace NetworkTroubleShooter {
 			} else if (taskType == TaskType.Dns) {
 				return CheckValidDns(message);
 			}
-			return "";
+			return _statusBad;
 		}
 
-		public string CheckValidPing(string message) {
-			Regex regex = new Regex(@"Reply from");
-			return regex.IsMatch(message) ? _statusGood : _statusBad;
+		private string CheckValidPing(string message) {
+			Regex regex = new Regex(@"([0-9]*)ms");
+			Match match = regex.Match(message);
+
+			if (match.Success) {
+				int parseResult;
+				if (int.TryParse(match.Groups[1].Value, out parseResult)) {
+					if (parseResult <= 100) {
+						return _statusGood;
+					}
+				}
+			}
+			return _statusBad;
 		}
 
-		public string CheckValidDns(string message) {
+		private string CheckValidDns(string message) {
 			Regex regex = new Regex(@"202.180.64.10");
 			return regex.IsMatch(message) ? _statusGood : _statusBad;
 		}
